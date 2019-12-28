@@ -1,0 +1,170 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+a:hover {
+  text-decoration: none;
+}
+
+/********* My *********/
+.landing {
+  margin-top: 100px;
+  padding-left: 20px;
+  padding-right: 30px;
+}
+/* Filter */
+/* Checkbox */
+.filter {
+  -webkit-box-shadow: 2px 4px 14px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 4px 14px -7px rgba(0,0,0,0.75);
+  box-shadow: 2px 4px 14px -7px rgba(0,0,0,0.75);
+  padding: 20px;
+}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* Checkbox */
+/* Filter */
+
+/* List */
+.list {
+  -webkit-box-shadow: 2px 4px 14px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 4px 14px -7px rgba(0,0,0,0.75);
+  box-shadow: 2px 4px 14px -7px rgba(0,0,0,0.75);
+  padding: 20px;
+}
+/* Card */
+.card-product:after {
+  content: "";
+  display: table;
+  clear: both;
+  visibility: hidden;
+}
+.card-product .price-new, .card-product .price {
+  margin-right: 5px;
+  color: #000;
+}
+.card-product .price-old {
+  color: #999; }
+.card-product .img-wrap {
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+  position: relative;
+  height: 220px;
+  text-align: center; }
+.card-product .img-wrap img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover; }
+
+.card-product .info-wrap {
+  overflow: hidden;
+  padding: 15px;
+  border-top: 1px solid #eee; }
+.card-product .action-wrap {
+  padding-top: 4px;
+  margin-top: 4px; }
+.card-product .bottom-wrap {
+  padding: 15px;
+  border-top: 1px solid #eee; }
+.card-product .title {
+  margin-top: 0; }
+/* Card */
+/* List */
+
+/* Detail */
+.detail {
+  margin-top: 80px;
+}
+/* Detail */
+
+
+
+/********* My *********/
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

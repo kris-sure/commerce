@@ -1,0 +1,9 @@
+FROM node:latest
+
+# set working directory
+WORKDIR /app
+
+COPY ./client /app/
+
+# start app
+CMD ["npm", "start"]

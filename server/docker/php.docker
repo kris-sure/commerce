@@ -1,0 +1,16 @@
+FROM php:7.2-fpm
+
+RUN apt-get update && apt-get install -y unzip
+
+# install mongo
+RUN pecl install mongodb
+RUN echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongo.ini
+
+# Install composer
+RUN curl -sS https://getcomposer.org/installer | php -- \
+        --filename=composer \
+        --install-dir=/usr/local/bin && \
+        echo "alias composer='composer'" >> /root/.bashrc && \
+        composer
+
+WORKDIR /app

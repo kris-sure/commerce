@@ -1,0 +1,50 @@
+version: '3'
+services:
+    ### Server
+    nginx:
+        container_name: com-nginx
+        restart: always
+        build:
+            context: ./
+            dockerfile: ${PWD}/server/docker/nginx.docker
+        volumes:
+            - ./server:/app
+        depends_on:
+            - php
+            - mongo
+        ports:
+            - "9999:80"
+    php:
+        container_name: com-php
+        restart: always
+        build:
+            context: ./
+            dockerfile: ${PWD}/server/docker/php.docker
+        volumes:
+            - ./server:/app
+    ### Database
+    mongo:
+        image: mongo:latest
+        container_name: com-mongo
+        restart: always
+        volumes:
+            - ./data/db/mongo:/data/db
+        ports:
+            - "27017:27017"
+        environment:
+            MONGODB_DB: 'com'
+    ### Client
+    node:
+        container_name: com-node
+        restart: always
+        build:
+            context: ./
+            dockerfile: ${PWD}/client/docker/client.docker
+        volumes:
+            - ./client:/app
+        expose:
+            - 8080
+        ports:
+            - 8080:3000
+
+    
