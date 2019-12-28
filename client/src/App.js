@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from "./Components/Common/Header";
@@ -20,7 +19,7 @@ export default class App extends React.Component {
                 <Switch>
                     <Route exact path='/' component={Landing} />
                     <Route exact path='/catalog' component={Catalog} />
-                    <Route exact path='/detail' component={Detail} />
+                    <Route exact path='/detail/:id' component={Detail} />
                     <Route exact path='/about' component={About} />
                     <Route exact path='/contacts' component={Contacts} />
                 </Switch>

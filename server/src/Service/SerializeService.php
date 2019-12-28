@@ -29,12 +29,12 @@ class SerializeService
      */
     public function serialize($entity): string
     {
-        return $this->serializer->serialize($entity, 'json', [
+        /*return $this->serializer->serialize($entity, 'json', [
             'circular_reference_handler' => function ($object) {
                 return $object->getId();
             }
-        ]);
-        //return $serializer->serialize($jsonObject, 'json');
+        ]);*/
+        return $this->serializer->serialize($entity, 'json');
     }
 
     /**
