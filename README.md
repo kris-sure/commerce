@@ -4,6 +4,6 @@
 
 ### ---> PHP, Javascript, MongoDB, ElasticSearch, Docker
 
-### ---> Backend Admin -> Symfony 4.3
+### ---> Backend Api -> Symfony 4.3
 
 ### ---> Frontend -> React 16
