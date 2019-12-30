@@ -57,6 +57,8 @@ export default class Filter extends React.Component {
                 filter: [queryString]
             }})
             .then(res => {
+                console.log(JSON.parse(res.data));
+                //this.props.products = JSON.parse(res.data);
                 this.setState({products: JSON.parse(res.data)});
             });
     }

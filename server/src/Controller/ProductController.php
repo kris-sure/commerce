@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Document\Product;
+use App\Repository\ProductRepository;
 use App\Service\SerializeService;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,8 +33,8 @@ class ProductController extends AbstractController
      */
     public function getProducts(Request $request)
     {
-        //print_r($request->get('filter'));
-        $products = $this->serializeService->serialize($this->documentManager->getRepository(Product::class)->findAll());
+        $filter = ($request->get('filter')[0]) ?? $request->get('filter')[0];
+        $products = $this->serializeService->serialize($this->documentManager->getRepository(Product::class)->getAll($filter));
         return new JsonResponse($products, 200);
     }
 
