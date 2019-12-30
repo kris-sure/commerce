@@ -7,9 +7,13 @@ import Catalog from "./Components/Catalog/Catalog";
 import About from "./Components/Common/About";
 import Contacts from "./Components/Common/Contacts";
 import Detail from "./Components/Catalog/Detail";
+import { loadProgressBar } from 'axios-progress-bar'
+import 'axios-progress-bar/dist/nprogress.css';
 
 export default class App extends React.Component {
+
     render() {
+        loadProgressBar();
         return (
             <Router>
             <div className="main">

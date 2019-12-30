@@ -32,6 +32,7 @@ class ProductController extends AbstractController
      */
     public function getProducts(Request $request)
     {
+        //print_r($request->get('filter'));
         $products = $this->serializeService->serialize($this->documentManager->getRepository(Product::class)->findAll());
         return new JsonResponse($products, 200);
     }
