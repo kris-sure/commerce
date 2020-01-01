@@ -10,40 +10,44 @@ export default class Filter extends React.Component {
         this.onChange = this.onChange.bind(this);
     }
 
-    onChange(e, index) {
+    onChange(index, e) {
         let updatedArray = [];
         let queryString = "";
         if (this.state.checked === undefined) {
-            updatedArray.push(e.target.value);
+            updatedArray[index] = e.target.value;
             queryString = this.buildQuery([e.target.value]);
         } else {
             updatedArray = this.state.checked;
             if (this.isChecked(e.target.value)) {
-                updatedArray.splice(index, 1);
+                updatedArray.map((num, index) => {
+                    if (num === e.target.value) {
+                        updatedArray.splice(index, 1);
+                    }
+                });
             } else {
-                updatedArray.push(e.target.value);
+                updatedArray[index] = e.target.value;
             }
             queryString = this.buildQuery(this.state.checked);
         }
-
+        console.log(updatedArray);
         this.setState({checked: updatedArray});
+        console.log(this.state.checked);
         this.setFilterProduct(queryString);
     }
 
     isChecked(value) {
         let array = [];
-            array = this.state.checked;
-            for(var i = 0; i < array.length; i++) {
-                if (array[i] === value) {
-                    return true;
-                }
+        array = this.state.checked;
+        for(var i = 0; i < array.length; i++) {
+            if (array[i] === value) {
+                return true;
             }
+        }
     }
 
     buildQuery(checked) {
         let array = checked;
         let string = "";
-
         for(var i = 0; i < array.length; i++) {
             string = (i === 0) ? string.concat(array[i]) : string.concat("_" + array[i]);
         }
@@ -58,8 +62,7 @@ export default class Filter extends React.Component {
             }})
             .then(res => {
                 console.log(JSON.parse(res.data));
-                //this.props.products = JSON.parse(res.data);
-                this.setState({products: JSON.parse(res.data)});
+                this.props.onProductChange(JSON.parse(res.data));
             });
     }
 
@@ -84,11 +87,11 @@ export default class Filter extends React.Component {
                 </div>
             <div className="filter mt-3">
                 <h4 className="mb-3">Filter by category</h4>
-                    { this.state.categories.map((category) =>
+                    { this.state.categories.map((category, index) =>
                         (
                             <div key={category.id}>
                             <label className="container">{category.name}
-                                <input type="checkbox" value={category.id} onChange={this.onChange} />
+                                <input type="checkbox" value={category.id} onChange={this.onChange.bind(this, index)} />
                                 <span className="checkmark"></span>
                             </label>
                             </div>
