@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Header from "./Components/Common/Header";
-import Landing from "./Components/Home/Landing";
-import Catalog from "./Components/Catalog/Catalog";
-import About from "./Components/Common/About";
-import Contacts from "./Components/Common/Contacts";
-import Detail from "./Components/Catalog/Detail";
+import HeaderController from "./Components/Common/Header/HeaderController";
+import LandingController from "./Components/Home/Landing/LandingController";
+import CatalogController from "./Components/Catalog/Catalog/CatalogController";
+import AboutController from "./Components/Common/About/AboutController";
+import ContactsController from "./Components/Common/Contacts/ContactsController";
+import DetailController from "./Components/Catalog/Detail/DetailController";
 import { loadProgressBar } from 'axios-progress-bar'
 import 'axios-progress-bar/dist/nprogress.css';
 
@@ -18,14 +18,14 @@ export default class App extends React.Component {
             <Router>
             <div className="main">
                 <div className="container-fluid">
-                    <Header />
+                    <HeaderController />
                 </div>
                 <Switch>
-                    <Route exact path='/' component={Landing} />
-                    <Route exact path='/catalog' component={Catalog} />
-                    <Route exact path='/detail/:id' component={Detail} />
-                    <Route exact path='/about' component={About} />
-                    <Route exact path='/contacts' component={Contacts} />
+                    <Route exact path='/' component={LandingController} />
+                    <Route exact path='/catalog' component={CatalogController} />
+                    <Route exact path='/detail/:id' component={DetailController} />
+                    <Route exact path='/about' component={AboutController} />
+                    <Route exact path='/contacts' component={ContactsController} />
                 </Switch>
             </div>
             </Router>

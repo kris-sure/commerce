@@ -1,24 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import axios from "axios";
 
 
-export default class Detail extends React.Component {
-
-    state = {
-        id: this.props.match.params.id,
-        product: []
-    };
-
-    componentDidMount() {
-        axios.get(`http://localhost:9999/products/${this.state.id}`)
-            .then(res => {
-                const product = JSON.parse(res.data);
-                console.log(product);
-                this.setState({ product });
-            })
-    }
-
+export default class DetailView extends React.Component {
     render() {
         return (
             <div className="detail">
@@ -38,11 +22,11 @@ export default class Detail extends React.Component {
                         <img src={"/img/1.jpg"} alt="..." className="img-thumbnail" />
                     </div>
                     <div className="col-lg-9">
-                        <h1>{this.state.product.name}</h1>
-                        <h5>{this.state.product.price} $</h5>
+                        <h1>{this.props.product.name}</h1>
+                        <h5>{this.props.product.price} $</h5>
                         <button className="btn btn-success mb-4">Order</button>
                         <h4>Description:</h4>
-                        <p>{this.state.product.desc}</p>
+                        <p>{this.props.product.desc}</p>
                     </div>
                 </div>
             </div>

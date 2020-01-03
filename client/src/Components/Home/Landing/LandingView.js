@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 
-export default class Landing extends React.Component {
+export default class LandingView extends React.Component {
     render() {
         return (
             <div className="row landing">
