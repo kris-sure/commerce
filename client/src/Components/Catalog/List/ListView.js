@@ -8,7 +8,7 @@ export default class ListView extends React.Component {
             <div className="list">
                 <InfiniteScroll
                     dataLength={this.props.products.length}
-                    next={this.props.fetchMoreData}
+                    next={this.props.onProductChange}
                     hasMore={true}
                     loader={<h4>Loading...</h4>}
                 >

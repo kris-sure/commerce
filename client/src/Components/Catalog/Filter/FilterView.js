@@ -22,7 +22,7 @@ export default class FilterView extends React.Component {
                         (
                             <div key={category.id}>
                                 <label className="container">{category.name}
-                                    <input type="checkbox" value={category.id} onChange={this.props.onChange.bind(this, index)} />
+                                    <input type="checkbox" value={category.id} onChange={this.props.onChangeChecked.bind(this, index)} />
                                     <span className="checkmark"></span>
                                 </label>
                             </div>
