@@ -129,6 +129,9 @@ a:hover {
 .card-product .title {
   margin-top: 0; }
 /* Card */
+.infinite-scroll-component__outerdiv {
+  width: 100%;
+}
 /* List */
 
 /* Detail */

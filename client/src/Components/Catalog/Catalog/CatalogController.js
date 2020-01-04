@@ -4,10 +4,10 @@ import CatalogView from "./CatalogView";
 
 
 export default class CatalogController extends React.Component {
-
     constructor(props) {
         super(props);
         this.setProduct = this.setProduct.bind(this);
+        this.state = {pages: 10};
         this.state = {products: []};
     }
 
@@ -19,7 +19,10 @@ export default class CatalogController extends React.Component {
         if (productsArray !== null && productsArray.length > 0) {
             this.setState({products: productsArray});
         } else {
-            axios.get(`http://localhost:9999/products`)
+            axios.get(`http://localhost:9999/products`, {
+                params: {
+                    page: []
+                }})
                 .then(res => {
                     const products = JSON.parse(res.data);
                     this.setState({ products: products });
@@ -28,7 +31,7 @@ export default class CatalogController extends React.Component {
     }
 
     render() {
-        return (<CatalogView products = {this.state.products} self = {this.setProduct}/>);
+        return (<CatalogView products = {this.state.products} self = {this.setProduct} pages = {this.state.pages} fetchMoreData = {this.fetchMoreData}/>);
     }
 
 }

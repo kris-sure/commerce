@@ -36,7 +36,8 @@ class ProductController extends AbstractController
         $filter = ($request->get('filter')[0]) ?? $request->get('filter')[0];
         $sort = ($request->get('sort')[0]) ?? $request->get('sort')[0];
         $name = ($request->get('name')[0]) ?? $request->get('name')[0];
-        $products = $this->serializeService->serialize($this->documentManager->getRepository(Product::class)->getAll($filter, $sort, $name));
+        $pages = ($request->get('pages')[0]) ? $request->get('pages')[0] : 10;
+        $products = $this->serializeService->serialize($this->documentManager->getRepository(Product::class)->getAll($filter, $sort, $name, $pages));
         return new JsonResponse($products, 200);
     }
 

@@ -7,7 +7,7 @@ use Doctrine\ODM\MongoDB\Repository\DocumentRepository;
 
 class ProductRepository extends DocumentRepository
 {
-    public function getAll($filter, $sort, $name)
+    public function getAll($filter, $sort, $name, $pages)
     {
         $categoryArray = $this->createCategoryIn($filter);
         $query = $this->createQueryBuilder();
@@ -24,7 +24,7 @@ class ProductRepository extends DocumentRepository
             $query->sort('price', $sort);
         }
 
-        return $query->getQuery()->execute();
+        return $query->limit($pages)->getQuery()->execute();
     }
 
     private function createCategoryIn($filter)

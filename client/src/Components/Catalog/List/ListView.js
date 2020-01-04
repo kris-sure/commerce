@@ -1,10 +1,17 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export default class ListView extends React.Component {
     render() {
         return (
             <div className="list">
+                <InfiniteScroll
+                    dataLength={this.props.products.length}
+                    next={this.props.fetchMoreData}
+                    hasMore={true}
+                    loader={<h4>Loading...</h4>}
+                >
                 <div className="row">
                     { this.props.products.map((product) => (
                         <div key={product.id} className="col-md-3">
@@ -24,7 +31,9 @@ export default class ListView extends React.Component {
                             </Link>
                         </div>
                     ))}
+
                 </div>
+                </InfiniteScroll>
             </div>
         )
     }

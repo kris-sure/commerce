@@ -10,7 +10,7 @@ export default class CatalogView extends React.Component {
                     <FilterController onProductChange = {this.props.self}/>
                 </div>
                 <div className="col-lg-9">
-                    <ListController products = {this.props.products}/>
+                    <ListController onProductListChange = {this.props.self} products = {this.props.products} />
                 </div>
             </div>
         )
