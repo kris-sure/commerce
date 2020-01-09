@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default class Contacts extends React.Component {
+export default class ContactsView extends React.Component {
     render() {
         return (
             <div className="row landing">
