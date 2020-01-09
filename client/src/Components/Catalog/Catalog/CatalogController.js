@@ -40,14 +40,13 @@ export default class CatalogController extends React.Component {
         if (nameValue) {
             name = nameValue;
         } else {
-            name = (this.state.name !== undefined) ? this.state.name : "";
+            name = (this.state.name !== undefined && this.state.name.length > 1) ? this.state.name : "";
         }
         if (!productsArray && !sortValue && !nameValue) {
             pages = (this.state.pages === undefined) ? 10 : this.state.pages + 10;
         } else {
             pages = (this.state.pages === undefined) ? 10 : this.state.pages;
         }
-        console.log(pages);
 
         axios.get(`http://localhost:9999/products`,{
             params: {

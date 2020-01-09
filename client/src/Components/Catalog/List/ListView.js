@@ -10,10 +10,10 @@ export default class ListView extends React.Component {
                     dataLength={this.props.products.length}
                     next={this.props.onProductChange}
                     hasMore={true}
-                    loader={<h4>Loading...</h4>}
                 >
                 <div className="row">
-                    { this.props.products.map((product) => (
+                    { this.props.products.length > 0 ?
+                        (this.props.products.map((product) => (
                         <div key={product.id} className="col-md-3">
                             <Link to={`/detail/${product.id}`}>
                                 <figure className="card card-product">
@@ -30,8 +30,7 @@ export default class ListView extends React.Component {
                                 </figure>
                             </Link>
                         </div>
-                    ))}
-
+                    ))) : (<h3>Not products</h3>)}
                 </div>
                 </InfiniteScroll>
             </div>
