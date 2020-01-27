@@ -85,6 +85,9 @@
             "config/packages/nelmio_cors.yaml"
         ]
     },
+    "nikic/fast-route": {
+        "version": "v1.3.0"
+    },
     "ocramius/package-versions": {
         "version": "1.4.2"
     },
@@ -106,6 +109,18 @@
     "psr/event-dispatcher": {
         "version": "1.0.0"
     },
+    "psr/http-factory": {
+        "version": "1.0.1"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
+    "psr/http-server-handler": {
+        "version": "1.0.1"
+    },
+    "psr/http-server-middleware": {
+        "version": "1.0.1"
+    },
     "psr/log": {
         "version": "1.1.2"
     },
@@ -114,6 +129,9 @@
     },
     "ruflin/elastica": {
         "version": "6.1.1"
+    },
+    "slim/slim": {
+        "version": "4.4.0"
     },
     "symfony/cache": {
         "version": "v5.0.2"
