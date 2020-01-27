@@ -41,9 +41,9 @@ class SeedController extends AbstractController
             $user->setUpdated(date("Y-m-d"));
             $this->documentManager->persist($user);
         }
-        $this->documentManager->flush();*/
+        $this->documentManager->flush();
 
-        /*$category1 = new Category();
+        $category1 = new Category();
         $category1->setName('Category 1');
         $category1->setCreated(date("Y-m-d"));
         $category1->setUpdated(date("Y-m-d"));
@@ -61,14 +61,20 @@ class SeedController extends AbstractController
         $category3->setUpdated(date("Y-m-d"));
         $this->documentManager->persist($category3);
 
+        $category4 = new Category();
+        $category4->setName('Category 4');
+        $category4->setCreated(date("Y-m-d"));
+        $category4->setUpdated(date("Y-m-d"));
+        $this->documentManager->persist($category4);
 
-        for($i = 1; $i <= 15; $i++) {
+
+        for($i = 1; $i <= 150; $i++) {
             $product = new Product();
             $product->setName('Product ' . $i);
-            $categoryArray = [$category1->getId(), $category2->getId(), $category3->getId()];
+            $categoryArray = [$category1->getId(), $category2->getId(), $category3->getId(), $category4->getId()];
             $product->setCategory($categoryArray[array_rand($categoryArray)]);
             $product->setDesc('Description ' . $i);
-            $priceArray = [100, 300, 4500, 9999, 450, 600, 900, 120, 50, 580];
+            $priceArray = [100, 300, 4500, 9999, 450, 600, 900, 120, 50, 580, 3000, 4000, 2600, 8600];
             $product->setPrice($priceArray[array_rand($priceArray)]);
             $product->setImg('img' . $i . '.jpg');
             $product->setCreated(date("Y-m-d"));

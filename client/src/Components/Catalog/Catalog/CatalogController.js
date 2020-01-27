@@ -56,6 +56,7 @@ export default class CatalogController extends React.Component {
                 pages: [pages]
             }})
             .then(res => {
+                console.log(JSON.parse(res.data));
                 this.setState({ products: JSON.parse(res.data) });
             });
         this.setState({pages: pages});

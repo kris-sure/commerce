@@ -13,7 +13,7 @@ export default class FilterView extends React.Component {
                     </select>
                 </div>
                 <div className="filter">
-                    <h4 className="mb-3">Sorting by name</h4>
+                    <h4 className="mb-3">Filter by name</h4>
                     <input type="text" className="form-control" value={this.props.name} placeholder="Enter name" onChange={this.props.onChangeName} />
                 </div>
                 <div className="filter mt-3">
